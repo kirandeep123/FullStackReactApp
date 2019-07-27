@@ -3,19 +3,25 @@ import "./App.css";
 import { HomePage } from "./pages/HomePage";
 import { AboutPage } from "./pages/AboutPage";
 import { ArticlePage } from "./pages/ArticlePage";
-import { ArticleList } from "./pages/ArticlesList";
-
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { ArticlesListPage } from "./pages/ArticlesListPage";
+import {NavBar} from './NavBar';
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
+import { Notfound } from "./pages/NotFound";
 
 function App() {
   return (
     <Router>
+
       <div className="App">
+      <NavBar/>
         <div id="page-body">
+        <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/about" component={AboutPage} />
-          <Route path="/article" component={ArticlePage} />
-          <Route path="/article-list" component={ArticleList} />
+          <Route path="/article/:name" component={ArticlePage} />
+          <Route path="/article-list" component={ArticlesListPage} />
+          <Route  component={Notfound}/>
+          </Switch>
         </div>
       </div>
     </Router>
