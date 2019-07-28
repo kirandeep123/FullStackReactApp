@@ -24,7 +24,6 @@ app.get("/api/articles/:name", async(req,res)=>{
     res.status(200).json(articleInfo)
  },res)
    
-   
 })
 
 app.post("/api/articles/:name/upvote",async(req,res)=>{
